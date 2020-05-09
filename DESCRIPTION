@@ -1,0 +1,18 @@
+Package: BDRR
+Title: Calculate Relative Risk for BIGDAWG-formatted Genotype Data
+Version: 1.0.0.9000
+Authors@R:
+ person(given = "Steven",
+        family = "Mack",
+        role = c("aut", "cre"),
+        email = "steven.mack@ucsf.edu",
+        comment = c(ORCID = "0000-0001-9820-9547"))
+Description: This package contains one function -- relRisk() -- that calculates relative risk (RR), associated confidence intervals and p-values for data frames or datafiles of case-control genotype data formatted for use with the Bridging Immunogenomic Data Analysis Workflow Gaps (BIGDAWG) R package. RR statistics are calculated for all alleles and genotypes at each locus, and are returned as a list object or can be written as individual tab-delimited text files.
+License: GPL (>= 3)
+Depends: R (>= 3.5.0)
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.0
+Imports: fmsb
+Suggests: knitr, rmarkdown
+VignetteBuilder: knitr
