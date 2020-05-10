@@ -2,3 +2,6 @@
 
 export(relRisk)
 importFrom(fmsb,riskratio)
+importFrom(utils,capture.output)
+importFrom(utils,read.table)
+importFrom(utils,write.table)
