@@ -1,7 +1,7 @@
 BIGDAWG Relative Risk (BDRR)
 ================
 
-## version 1.0.0.9000
+## version 1.0.1.9000
 
 BDRR includes one function, *relRisk()*, which calculates relative risk
 and associated measures for BIGDAWG-formatted case-control genotype

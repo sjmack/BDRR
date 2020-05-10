@@ -1,4 +1,4 @@
-## HLA RRisk Calculation -- Steven J Mack May 8, 2020 v 1.0
+## HLA RRisk Calculation -- Steven J Mack May 9, 2020 v 1.1
 ##
 ## Calculate Relative Risk for Individual Alleles and Genotypes in BIGDAWG-formatted Case-Control Datasets
 
@@ -7,16 +7,17 @@
 #' This function returns a list object containing relative risk, confidence interval and p-value data for the individual alleles and individual genotypes at each locus in a BIGDAWG-formatted case-control genotype data frame or file. 
 #' 
 #' @param dataset The name of a BIGDAWG formatted case-control genotype dataset. Either a tab-delimited file or a data frame can be specified. 
-#' @param return A logical identifying of the list object should be returned (return=TRUE), or if pairs of tab-delimited text files of results (one for alleles and one for genotypes) should be written to the working directory for each locus.
+#' @param return A logical identifying if the list object should be returned (return=TRUE), or if pairs of tab-delimited text files of results (one for alleles and one for genotypes) should be written to the working directory for each locus.
 #' @keywords relative risk genotype allele
 #' @importFrom fmsb riskratio
+#' @importFrom utils read.table capture.output write.table
 #' @return A list object of two lists ("alleles" and "genotypes"), each of which contains a list of nine-column data frames containing results for each unique allele or genotype (in rows) at each locus. Column headers in each dataframe are, *Locus*, *Variant*, *Cases*, *Controls*, *RelativeRisk*, *CI.low*, *CI.high*, *p.value*, and *Significant*.
 #' @export
 #' @examples
 #' # Analyzing the BIGDAWG::HLA_data dataset 
 #' library(BIGDAWG)
 #' rr <- relRisk(HLA_data[,1:4])
-#' @references \code{\href{https://cran.r-project.org/web/packages/BIGDAWG/vignettes/BIGDAWG.html#input-data}{BIGDAWG Data Format}}
+#' @references \href{https://cran.r-project.org/web/packages/BIGDAWG/vignettes/BIGDAWG.html#input-data}{BIGDAWG Data Format}
 
 relRisk <- function(dataset,return=TRUE){ ## if return == TRUE, a list object is returned; if return==FALSE, two tab-delimited text files are written for each locus; one for alleles and one for genotypes
 

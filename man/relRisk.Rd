@@ -9,7 +9,7 @@ relRisk(dataset, return = TRUE)
 \arguments{
 \item{dataset}{The name of a BIGDAWG formatted case-control genotype dataset. Either a tab-delimited file or a data frame can be specified.}
 
-\item{return}{A logical identifying of the list object should be returned (return=TRUE), or if pairs of tab-delimited text files of results (one for alleles and one for genotypes) should be written to the working directory for each locus.}
+\item{return}{A logical identifying if the list object should be returned (return=TRUE), or if pairs of tab-delimited text files of results (one for alleles and one for genotypes) should be written to the working directory for each locus.}
 }
 \value{
 A list object of two lists ("alleles" and "genotypes"), each of which contains a list of nine-column data frames containing results for each unique allele or genotype (in rows) at each locus. Column headers in each dataframe are, *Locus*, *Variant*, *Cases*, *Controls*, *RelativeRisk*, *CI.low*, *CI.high*, *p.value*, and *Significant*.
@@ -23,7 +23,7 @@ library(BIGDAWG)
 rr <- relRisk(HLA_data[,1:4])
 }
 \references{
-\code{\href{https://cran.r-project.org/web/packages/BIGDAWG/vignettes/BIGDAWG.html#input-data}{BIGDAWG Data Format}}
+\href{https://cran.r-project.org/web/packages/BIGDAWG/vignettes/BIGDAWG.html#input-data}{BIGDAWG Data Format}
 }
 \keyword{allele}
 \keyword{genotype}
