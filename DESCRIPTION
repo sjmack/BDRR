@@ -1,6 +1,6 @@
 Package: BDRR
 Title: Calculate Relative Risk for BIGDAWG-formatted Genotype Data
-Version: 1.0.1.9000
+Version: 1.0.2.9000
 Authors@R:
  person(given = "Steven",
         family = "Mack",

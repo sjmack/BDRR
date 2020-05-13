@@ -1,4 +1,4 @@
-## HLA RRisk Calculation -- Steven J Mack May 9, 2020 v 1.1
+## HLA RRisk Calculation -- Steven J Mack May 13, 2020 v 1.2
 ##
 ## Calculate Relative Risk for Individual Alleles and Genotypes in BIGDAWG-formatted Case-Control Datasets
 
@@ -40,8 +40,8 @@ for(j in 1:nrow(HLAgenoData)) {
     
 }
 
-cases <- HLAgenoData[HLAgenoData$Disease=="1",]
-controls <- HLAgenoData[HLAgenoData$Disease=="0",]
+cases <- HLAgenoData[HLAgenoData[,2]=="1",]
+controls <- HLAgenoData[HLAgenoData[,2]=="0",]
 
 ## variant level RRs 
 RRtab <- masterTab <- list("alleles"=list(),
