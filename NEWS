@@ -1,3 +1,8 @@
+Version 1.0.3.9000 (2020-05-16)
+  o 2020-05-16
+  o Updated documentation to clarify that relrisk() should not be applied for case-control data.
+  o Replaced 'Case' and 'Control' in results column names with 'Status_1' and 'Status_0'.  
+
 Version 1.0.2.9000 (2020-05-13)
   o 2020-05-13
   o Column header of 'Disease' is no longer required for column 2 of datasets.  

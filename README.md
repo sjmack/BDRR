@@ -1,11 +1,17 @@
 BIGDAWG Relative Risk (BDRR)
 ================
 
-## version 1.0.2.9000
+## version 1.0.3.9000
 
 BDRR includes one function, *relRisk()*, which calculates relative risk
-and associated measures for BIGDAWG-formatted case-control genotype
+and associated measures for BIGDAWG-formatted non-case-control genotype
 datasets (shown below), using the fmsb::riskratio function.
+
+Here, “non-case-control” indciates that while two subject categories are
+required, the dataset should not include patients and controls; instead,
+the categories may be, e.g., for a dataset of patients, either of two
+disease states, where one disease state is coded as 0 and the other is
+coded as 1 in the second column of the dataset.
 
 ``` r
 BIGDAWG::HLA_data[1:4,]
@@ -32,7 +38,7 @@ files as input.
 The *riskRatio() function* returns an R list object that contains an
 `$alleles` and a `$genotypes` list of analytic result data frames for
 each locus. Data in these data frames are organized in `Locus`,
-`Variant`, `Cases`, `Controls`, `RelativeRisk`, `CI.low`, `CI.high`,
+`Variant`, `Status_1`, `Status_0`, `RelativeRisk`, `CI.low`, `CI.high`,
 `p.value`, and `Significant` columns, as shown below.
 
 ``` r
@@ -41,12 +47,12 @@ exampleRR <- relRisk(BIGDAWG::HLA_data[,1:4])
 exampleRR$alleles[[1]][1:5,]    
 ```
 
-    ##   Locus     Variant Cases Controls      RelativeRisk            CI.low
-    ## 1     A 01:01:01:01   176      166  1.03432941327678 0.928482721560761
-    ## 2     A 02:01:01:01    52       58 0.945940890385335 0.774586359500803
-    ## 3     A    02:05:01   105      142 0.843683161448755 0.727283103794645
-    ## 4     A 03:01:01:01   150      145  1.02052995941752 0.908069882145854
-    ## 5     A    03:01:03   137      108  1.12949687674962  1.00601549637306
+    ##   Locus     Variant Status_1 Status_0      RelativeRisk            CI.low
+    ## 1     A 01:01:01:01      176      166  1.03432941327678 0.928482721560761
+    ## 2     A 02:01:01:01       52       58 0.945940890385335 0.774586359500803
+    ## 3     A    02:05:01      105      142 0.843683161448755 0.727283103794645
+    ## 4     A 03:01:01:01      150      145  1.02052995941752 0.908069882145854
+    ## 5     A    03:01:03      137      108  1.12949687674962  1.00601549637306
     ##             CI.high            p.value Significant
     ## 1  1.15224258925478  0.545807942758558            
     ## 2  1.15520258926283  0.576318536881742            
@@ -58,12 +64,12 @@ exampleRR$alleles[[1]][1:5,]
 exampleRR$genotypes[[1]][1:5,]
 ```
 
-    ##   Locus                 Variant Cases Controls      RelativeRisk
-    ## 1     A 01:01:01:01+01:01:01:01     8        7  1.06936026936027
-    ## 2     A 01:01:01:01+02:01:01:01     4        5 0.890230270511961
-    ## 3     A    01:01:01:01+02:05:01     9       11 0.900910010111224
-    ## 4     A 01:01:01:01+03:01:01:01    13       12  1.04263959390863
-    ## 5     A    01:01:01:01+03:01:03    12        9  1.14691393798899
+    ##   Locus                 Variant Status_1 Status_0      RelativeRisk
+    ## 1     A 01:01:01:01+01:01:01:01        8        7  1.06936026936027
+    ## 2     A 01:01:01:01+02:01:01:01        4        5 0.890230270511961
+    ## 3     A    01:01:01:01+02:05:01        9       11 0.900910010111224
+    ## 4     A 01:01:01:01+03:01:01:01       13       12  1.04263959390863
+    ## 5     A    01:01:01:01+03:01:03       12        9  1.14691393798899
     ##              CI.low          CI.high           p.value Significant
     ## 1 0.664735770005212 1.72027960173905   0.7895603369942            
     ## 2 0.428256020543676 1.85055176464232 0.742918500771633            
